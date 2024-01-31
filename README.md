@@ -11,3 +11,9 @@ Para declarar un array en C#, se utiliza la siguiente sintaxis:
 ```csharp
 tipoDeDato[] nombreDelArray = new tipoDeDato[tamaño];
 ```
+
+Cornelio => Ordenacion por burbuja
+Santiago => Fill array
+Benjamin =>  Busqueda binaria
+Wilmer => Impresion UX
+Cristian =>  Operaciones con vectores
