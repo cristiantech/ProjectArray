@@ -19,5 +19,6 @@ Cornelio => Ordenacion por burbuja
 Santiago => Fill array
 Benjamin =>  Busqueda binaria
 Wilmer => Impresion UX
+El diseño UX (User Experience) se encarga de hacer agradable la experiencia del usuario, a través de opciones que potencien la usabilidad de tu sitio o aplicación. El diseño UX busca que la interacción entre tus visitas y tu página sea lo más fluida posible, para que derive en la venta de tus servicios o productos.
 Cristian =>  Operaciones con vectores
 
