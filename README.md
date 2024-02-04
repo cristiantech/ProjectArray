@@ -14,11 +14,11 @@ Para declarar un array en C#, se utiliza la siguiente sintaxis:
 tipoDeDato[] nombreDelArray = new tipoDeDato[tamaño];
 ```
 
-Santiago => Fill array:
+## Santiago => Fill array sin parametros:
 
-## Santiago => Arrays 
+## Santiago => Arrays Método Fill con sobrecarga sin parametros 
 
-Arreglos en C#
+**Arreglos en C#**
 Publicado en 31 Dic 2017 el 6:07 pm.
 Escrito por Ivan Cachicatari    
 
@@ -27,3 +27,220 @@ Los arreglos en C# (también conocidos como Arrays) al igual que en C/C++, son i
 
 Como declarar un arreglo en C#
 Cuando vayamos a declarar un arreglo en debemos colocar los corchetes después de tipo de dato. En C/C++ se estila poner los corchetes después del identificador, eso causa un error de compilación en C#.
+
+
+## TAREA
+
+## Uso y Manipulación de Arrays (NUMEROS PRIMOS):
+
+Un array es una estructura de datos que permite almacenar elementos del mismo tipo en una secuencia contigua de memoria. En la mayoría de los lenguajes de programación, los arrays son herramientas fundamentales para almacenar y manipular conjuntos de datos.
+
+**Método para Obtener Números Primos**:
+Los números primos son aquellos que solo tienen dos divisores: 1 y ellos mismos. Aquí hay un ejemplo de un método para obtener números primos utilizando un array:
+
+``` csharp
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static List<int> ObtenerPrimos(int n)
+    {
+        List<int> primos = new List<int>();
+        for (int num = 2; num <= n; num++)
+        {
+            bool esPrimo = true;
+            for (int i = 2; i <= Math.Sqrt(num); i++)
+            {
+                if (num % i == 0)
+                {
+                    esPrimo = false;
+                    break;
+                }
+            }
+            if (esPrimo)
+            {
+                primos.Add(num);
+            }
+        }
+        return primos;
+    }
+
+    static void Main()
+    {
+        int limite = 50;
+        List<int> primosEnLimite = ObtenerPrimos(limite);
+        
+        Console.WriteLine("Números primos hasta " + limite + ":");
+        foreach (int primo in primosEnLimite)
+        {
+            Console.Write(primo + " ");
+        }
+    }
+}
+
+Método para Obtener Números que no se Repiten en C#:
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static List<int> NoSeRepiten(List<int> array)
+    {
+        List<int> noRepetidos = new List<int>();
+        HashSet<int> elementosUnicos = new HashSet<int>();
+
+        foreach (int num in array)
+        {
+            if (elementosUnicos.Add(num))
+            {
+                noRepetidos.Add(num);
+            }
+        }
+
+        return noRepetidos;
+    }
+
+    static void Main()
+    {
+        List<int> numeros = new List<int> { 1, 2, 3, 4, 2, 5, 6, 3, 7, 8, 9, 1 };
+        List<int> noRepetidos = NoSeRepiten(numeros);
+
+        Console.WriteLine("Números que no se repiten:");
+        foreach (int num in noRepetidos)
+        {
+            Console.Write(num + " ");
+        }
+    }
+}
+
+
+Claro, aquí tienes ejemplos específicos en C# para cada uno de los métodos mencionados:
+
+Método para Obtener Números Primos en C#:
+csharp
+Copy code
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static List<int> ObtenerPrimos(int n)
+    {
+        List<int> primos = new List<int>();
+        for (int num = 2; num <= n; num++)
+        {
+            bool esPrimo = true;
+            for (int i = 2; i <= Math.Sqrt(num); i++)
+            {
+                if (num % i == 0)
+                {
+                    esPrimo = false;
+                    break;
+                }
+            }
+            if (esPrimo)
+            {
+                primos.Add(num);
+            }
+        }
+        return primos;
+    }
+
+    static void Main()
+    {
+        int limite = 50;
+        List<int> primosEnLimite = ObtenerPrimos(limite);
+        
+        Console.WriteLine("Números primos hasta " + limite + ":");
+        foreach (int primo in primosEnLimite)
+        {
+            Console.Write(primo + " ");
+        }
+    }
+}
+Método para Obtener Números que no se Repiten en C#:
+csharp
+Copy code
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static List<int> NoSeRepiten(List<int> array)
+    {
+        List<int> noRepetidos = new List<int>();
+        HashSet<int> elementosUnicos = new HashSet<int>();
+
+        foreach (int num in array)
+        {
+            if (elementosUnicos.Add(num))
+            {
+                noRepetidos.Add(num);
+            }
+        }
+
+        return noRepetidos;
+    }
+
+    static void Main()
+    {
+        List<int> numeros = new List<int> { 1, 2, 3, 4, 2, 5, 6, 3, 7, 8, 9, 1 };
+        List<int> noRepetidos = NoSeRepiten(numeros);
+
+        Console.WriteLine("Números que no se repiten:");
+        foreach (int num in noRepetidos)
+        {
+            Console.Write(num + " ");
+        }
+    }
+}
+
+Método para Obtener Números que Más se Repiten en C#
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static List<int> MasRepetidos(List<int> array)
+    {
+        Dictionary<int, int> contador = new Dictionary<int, int>();
+
+        foreach (int num in array)
+        {
+            if (contador.ContainsKey(num))
+            {
+                contador[num]++;
+            }
+            else
+            {
+                contador[num] = 1;
+            }
+        }
+
+        List<int> masRepetidos = contador.Where(pair => pair.Value > 1).Select(pair => pair.Key).ToList();
+        return masRepetidos;
+    }
+
+    static void Main()
+    {
+        List<int> numeros = new List<int> { 1, 2, 3, 4, 2, 5, 6, 3, 7, 8, 9, 1 };
+        List<int> masRepetidos = MasRepetidos(numeros);
+
+        Console.WriteLine("Números que más se repiten:");
+        foreach (int num in masRepetidos)
+        {
+            Console.Write(num + " ");
+        }
+    }
+}
+
+```
+ **La manipulación de arrays es esencial en la programación para gestionar conjuntos de datos de manera eficiente. En el contexto de C#, se pueden implementar diversos métodos para realizar tareas específicas, como obtener números primos, identificar números que no se repiten y encontrar los números que más se repiten. Estas operaciones demuestran la versatilidad y potencia de los arrays en la resolución de problemas matemáticos y de análisis de datos. La utilización de estructuras de datos adicionales, como conjuntos y diccionarios, complementa estas operaciones, ofreciendo soluciones más eficientes y elegantes. En resumen, el conocimiento y aplicación efectiva de la manipulación de arrays son fundamentales para desarrolladores que buscan optimizar sus programas y resolver una variedad de problemas computacionales**.
+
+
+
