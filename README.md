@@ -16,7 +16,38 @@ tipoDeDato[] nombreDelArray = new tipoDeDato[tamaño];
 
 ## Santiago => Fill array sin parametros:
 
+En C#, el método Fill se utiliza para asignar un valor específico a cada elemento de una parte o la totalidad de un array. Existen dos versiones del método Fill: una con sobrecarga y otra sin sobrecarga.
+
 ## Santiago => Arrays Método Fill con sobrecarga sin parametros 
+
+```csharp
+Array.Fill(array, value);
+```
+
+En esta versión, el método Fill toma un array y un valor como argumentos. Cada elemento del array se establecerá con el valor proporcionado. Es útil para inicializar un array completo con un valor específico.
+
+Ejemplo:
+
+```csharp
+int[] numeros = new int[5];
+Array.Fill(numeros, 42);
+
+// Después de la ejecución, 'numeros' será {42, 42, 42, 42, 42}
+```
+Método Fill sin Sobrecarga:
+
+```csharp
+    Array.Fill(array, value, startIndex, count);
+```
+En esta versión, además del array y el valor, se proporcionan dos argumentos adicionales: startIndex y count. Estos indican la posición de inicio y la cantidad de elementos a los que se les asignará el valor.
+**Ejemplo:**
+```csharp
+int[] numeros = {1, 2, 3, 4, 5};
+Array.Fill(numeros, 0, 1, 3);
+
+// Después de la ejecución, 'numeros' será {1, 0, 0, 0, 5}
+```
+**En ambos casos, el método Fill ofrece una manera conveniente de establecer rápidamente los valores de un array, ya sea en su totalidad o solo en una parte específica.**
 
 **Arreglos en C#**
 Publicado en 31 Dic 2017 el 6:07 pm.
